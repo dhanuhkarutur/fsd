@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Input Methods</title>
+</head>
+<body>
+  <h1>JavaScript Input Methods</h1>
+  
+  <button onclick="usePrompt()">Use Prompt</button>
+  <button onclick="useForm()">Use Form</button>
+  
+  <form onsubmit="getFormInput(event)">
+    <label>Enter Name: </label>
+    <input type="text" id="nameInput"><br><br>
+    <label>Enter Age: </label>
+    <input type="number" id="ageInput"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    // 1. Prompt
+    function usePrompt() {
+      let name = prompt("Enter your name:");
+      alert("Hello, " + name);
+    }
+
+    // 2. Form Input
+    function getFormInput(event) {
+      event.preventDefault();
+      let name = document.getElementById("nameInput").value;
+      let age = document.getElementById("ageInput").value;
+      document.getElementById("result").innerHTML = "Name: " + name + ", Age: " + age;
+    }
+
+    // 3. Hardcoded Input (or variable assignment)
+    function useForm() {
+      let city = "Hyderabad"; 
+      alert("Your city is: " + city);
+    }
+  </script>
+</body>
+</html>
