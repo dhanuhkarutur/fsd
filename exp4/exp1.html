@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Selectors Example</title>
+  <style>
+
+    h1 {
+      color: darkblue;
+    }
+
+
+    #special {
+      color: red;
+      font-weight: bold;
+    }
+
+
+    .highlight {
+      background-color: yellow;
+    }
+
+
+    h2, p {
+      font-family: Arial, sans-serif;
+    }
+
+
+    * {
+      margin: 5px;
+    }
+
+    div p {
+      color: green;
+    }
+
+
+    div > span {
+      color: purple;
+      font-weight: bold;
+    }
+
+
+    h2 + p {
+      color: brown;
+      font-style: italic;
+    }
+
+
+    h2 ~ ul {
+      color: teal;
+    }
+
+    a:hover {
+      color: orange;
+    }
+
+    p:first-child {
+      text-decoration: underline;
+    }
+
+    li:nth-child(2) {
+      background-color: lightgray;
+    }
+
+    p::first-line {
+      font-weight: bold;
+      color: blue;
+    }
+
+    p::first-letter {
+      font-size: 24px;
+      color: red;
+    }
+
+    input[type="text"] {
+      border: 2px solid green;
+    }
+
+    input[type="password"] {
+      border: 2px solid red;
+    }
+
+    a[target="_blank"] {
+      background-color: lightyellow;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Selectors Demonstration</h1>
+
+  <h2 id="special">Simple Selectors Example</h2>
+  <p class="highlight">This paragraph has a class = "highlight".</p>
+
+  <div>
+    <p>Paragraph inside a div (descendant selector applied).</p>
+    <span>Span child of div (child selector applied).</span>
+  </div>
+
+  <h2>Combinator Selectors Example</h2>
+  <p>This paragraph is adjacent to h2 (adjacent sibling).</p>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2 (nth-child selector applied)</li>
+    <li>Item 3</li>
+  </ul>
+
+  <h2>Links Example</h2>
+  <p>Visit <a href="https://www.google.com" target="_blank">Google</a></p>
+  <p>Visit <a href="https://www.wikipedia.org">Wikipedia</a></p>
+
+  <h2>Form Example</h2>
+  <form>
+    Username: <input type="text"><br>
+    Password: <input type="password"><br>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Styles Example</title>
+
+  <!-- Internal CSS -->
+  <style>
+    /* selector { property: value; } */
+    h1 { color: green; text-align: center; }
+    p { font-size: 18px; color: navy; }
+    .highlight { background-color: yellow; }
+  </style>
+
+  <!-- External CSS (link to external file "styles.css") -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>CSS Styling Demonstration</h1>
+
+  <h2>1. Inline CSS</h2>
+  <p style="color:red; font-weight:bold;">This paragraph is styled using inline CSS.</p>
+
+  <h2>2. Internal CSS</h2>
+  <p>This paragraph uses internal CSS (font size and color set inside &lt;style&gt;).</p>
+
+  <h2>3. External CSS</h2>
+  <p class="highlight">This paragraph is styled using external CSS (background color from styles.css).</p>
+
+</body>
+</html>
+
