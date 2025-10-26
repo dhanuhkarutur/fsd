@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>String Object Example</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f7fa; text-align: center; margin: 20px; }
+    button { padding: 10px 20px; margin: 8px; border: none; border-radius: 6px; cursor: pointer; background: #ff5733; color: white; }
+    button:hover { background: #cc4629; transition: 0.3s; }
+    #output { margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>String Object Demo</h1>
+
+  <button onclick="showProperties()">Properties</button>
+  <button onclick="charAtMethod()">charAt()</button>
+  <button onclick="toUpperCaseMethod()">toUpperCase()</button>
+  <button onclick="toLowerCaseMethod()">toLowerCase()</button>
+  <button onclick="substringMethod()">substring()</button>
+  <button onclick="sliceMethod()">slice()</button>
+  <button onclick="splitMethod()">split()</button>
+  <button onclick="replaceMethod()">replace()</button>
+  <button onclick="concatMethod()">concat()</button>
+  <button onclick="trimMethod()">trim()</button>
+  <button onclick="searchMethod()">search()</button>
+  <button onclick="includesMethod()">includes()</button>
+
+  <div id="output"></div>
+
+  <script>
+    let str = "   Hello JavaScript World!   ";
+
+    function showProperties() {
+      document.getElementById("output").innerHTML =
+        `Original String: "${str}" <br>
+         Length: ${str.length}`;
+    }
+
+    function charAtMethod() {
+      document.getElementById("output").innerHTML =
+        `str.charAt(6) = "${str.charAt(6)}"`;
+    }
+
+    function toUpperCaseMethod() {
+      document.getElementById("output").innerHTML =
+        `str.toUpperCase() = "${str.toUpperCase()}"`;
+    }
+
+    function toLowerCaseMethod() {
+      document.getElementById("output").innerHTML =
+        `str.toLowerCase() = "${str.toLowerCase()}"`;
+    }
+
+    function substringMethod() {
+      document.getElementById("output").innerHTML =
+        `str.substring(3, 8) = "${str.substring(3, 8)}"`;
+    }
+
+    function sliceMethod() {
+      document.getElementById("output").innerHTML =
+        `str.slice(3, 8) = "${str.slice(3, 8)}"`;
+    }
+
+    function splitMethod() {
+      document.getElementById("output").innerHTML =
+        `str.split(" ") = ${str.split(" ")}`;
+    }
+
+    function replaceMethod() {
+      document.getElementById("output").innerHTML =
+        `str.replace("JavaScript", "JS") = "${str.replace("JavaScript", "JS")}"`;
+    }
+
+    function concatMethod() {
+      let str2 = " Let's Learn!";
+      document.getElementById("output").innerHTML =
+        `str.concat(str2) = "${str.concat(str2)}"`;
+    }
+
+    function trimMethod() {
+      document.getElementById("output").innerHTML =
+        `str.trim() = "${str.trim()}"`;
+    }
+
+    function searchMethod() {
+      document.getElementById("output").innerHTML =
+        `str.search("World") = ${str.search("World")}`;
+    }
+
+    function includesMethod() {
+      document.getElementById("output").innerHTML =
+        `str.includes("JavaScript") = ${str.includes("JavaScript")}`;
+    }
+  </script>
+</body>
+</html>

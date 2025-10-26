@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Object Example</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9fafc; text-align: center; margin: 20px; }
+    button { padding: 10px 20px; margin: 8px; border: none; border-radius: 6px; cursor: pointer; background: #28a745; color: white; }
+    button:hover { background: #1e7e34; transition: 0.3s; }
+    #output { margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>Math Object Demo</h1>
+
+  <button onclick="showConstants()">Math Constants</button>
+  <button onclick="randomNum()">Random Number</button>
+  <button onclick="roundNum()">Round</button>
+  <button onclick="floorNum()">Floor</button>
+  <button onclick="ceilNum()">Ceil</button>
+  <button onclick="maxMin()">Max & Min</button>
+  <button onclick="powerRoot()">Power & Square Root</button>
+  <button onclick="trigonometry()">Trigonometry</button>
+
+  <div id="output"></div>
+
+  <script>
+    function showConstants() {
+      let result = `
+        Math.PI = ${Math.PI} <br>
+        Math.E = ${Math.E} <br>
+        Math.SQRT2 = ${Math.SQRT2} <br>
+        Math.LN2 = ${Math.LN2}
+      `;
+      document.getElementById("output").innerHTML = result;
+    }
+
+    function randomNum() {
+      let result = Math.random(); // random number between 0 and 1
+      document.getElementById("output").innerHTML = "Random Number (0-1): " + result;
+    }
+
+    function roundNum() {
+      let num = 4.7;
+      document.getElementById("output").innerHTML =
+        `Number: ${num} <br> Math.round(${num}) = ${Math.round(num)}`;
+    }
+
+    function floorNum() {
+      let num = 4.9;
+      document.getElementById("output").innerHTML =
+        `Number: ${num} <br> Math.floor(${num}) = ${Math.floor(num)}`;
+    }
+
+    function ceilNum() {
+      let num = 4.1;
+      document.getElementById("output").innerHTML =
+        `Number: ${num} <br> Math.ceil(${num}) = ${Math.ceil(num)}`;
+    }
+
+    function maxMin() {
+      let nums = [5, 12, 3, 20, 7];
+      let max = Math.max(...nums);
+      let min = Math.min(...nums);
+      document.getElementById("output").innerHTML =
+        `Numbers: ${nums} <br> Max = ${max}, Min = ${min}`;
+    }
+
+    function powerRoot() {
+      let num = 9;
+      document.getElementById("output").innerHTML =
+        `Math.pow(3, 2) = ${Math.pow(3, 2)} <br>
+         Math.sqrt(${num}) = ${Math.sqrt(num)}`;
+    }
+
+    function trigonometry() {
+      let angle = Math.PI / 4; // 45 degrees
+      document.getElementById("output").innerHTML =
+        `Angle = 45° (PI/4 rad) <br>
+         Math.sin(angle) = ${Math.sin(angle)} <br>
+         Math.cos(angle) = ${Math.cos(angle)} <br>
+         Math.tan(angle) = ${Math.tan(angle)}`;
+    }
+  </script>
+</body>
+</html>

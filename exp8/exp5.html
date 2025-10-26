@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>Armstrong</title></head>
+<body>
+<script>
+  var num = parseInt(prompt("Enter number:"));
+  var temp = num;
+  var sum = 0;
+
+  while(temp != 0){
+    var rem = temp % 10;
+    sum = sum + (rem * rem * rem);
+    temp = Math.floor(temp / 10);
+  }
+
+  if(sum == num)
+    document.write(num + " is Armstrong number");
+  else
+    document.write(num + " is not Armstrong number");
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Object Example</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f2f6f9; text-align: center; margin: 20px; }
+    button { padding: 10px 20px; margin: 8px; border: none; border-radius: 6px; cursor: pointer; background: #0077cc; color: white; }
+    button:hover { background: #005fa3; transition: 0.3s; }
+    #output { margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>Array Object Demo</h1>
+
+  <button onclick="showArray()">Original Array</button>
+  <button onclick="addElement()">Push (Add)</button>
+  <button onclick="removeElement()">Pop (Remove)</button>
+  <button onclick="shiftElement()">Shift (Remove First)</button>
+  <button onclick="unshiftElement()">Unshift (Add First)</button>
+  <button onclick="sortArray()">Sort</button>
+  <button onclick="reverseArray()">Reverse</button>
+  <button onclick="joinArray()">Join</button>
+  <button onclick="sliceArray()">Slice</button>
+  <button onclick="spliceArray()">Splice</button>
+
+  <div id="output"></div>
+
+  <script>
+    let fruits = ["Apple", "Banana", "Mango", "Orange"];
+
+    function showArray() {
+      document.getElementById("output").innerHTML = "<b>Array:</b> " + fruits + "<br><b>Length:</b> " + fruits.length;
+    }
+
+    function addElement() {
+      fruits.push("Grapes"); // add at end
+      showArray();
+    }
+
+    function removeElement() {
+      fruits.pop(); // remove last
+      showArray();
+    }
+
+    function shiftElement() {
+      fruits.shift(); // remove first
+      showArray();
+    }
+
+    function unshiftElement() {
+      fruits.unshift("Strawberry"); // add at first
+      showArray();
+    }
+
+    function sortArray() {
+      fruits.sort();
+      showArray();
+    }
+
+    function reverseArray() {
+      fruits.reverse();
+      showArray();
+    }
+
+    function joinArray() {
+      let result = fruits.join(" - ");
+      document.getElementById("output").innerHTML = "<b>Joined:</b> " + result;
+    }
+
+    function sliceArray() {
+      let result = fruits.slice(1, 3);
+      document.getElementById("output").innerHTML = "<b>Slice (1,3):</b> " + result;
+    }
+
+    function spliceArray() {
+      fruits.splice(2, 1, "Kiwi", "Pineapple"); // remove 1 element from index 2 and add new ones
+      showArray();
+    }
+  </script>
+</body>
+</html>

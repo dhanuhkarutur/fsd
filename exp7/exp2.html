@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Window Object Example</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 20px; background: #eef2f3; }
+    button { padding: 10px 20px; margin: 8px; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #0077cc; color: white; transition: 0.3s; }
+    #info { margin-top: 20px; text-align: left; background: #fff; padding: 10px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Window Object Demo</h1>
+
+  <button onclick="openWin()">Open Window</button>
+  <button onclick="closeWin()">Close Window</button>
+  <button onclick="showSize()">Show Window Size</button>
+  <button onclick="showAlert()">Alert</button>
+  <button onclick="showConfirm()">Confirm</button>
+  <button onclick="showPrompt()">Prompt</button>
+  <button onclick="scrollWin()">Scroll Window</button>
+  <button onclick="startTimer()">Start Timer</button>
+  <button onclick="stopTimer()">Stop Timer</button>
+
+  <div id="info"></div>
+
+  <script>
+    let myWindow;
+    let timer;
+
+    // Open new window
+    function openWin() {
+      myWindow = window.open("", "myWindow", "width=400,height=300");
+      myWindow.document.write("<p>This is tarun's new window!</p>");
+    }
+
+    // Close window
+    function closeWin() {
+      if (myWindow) {
+        myWindow.close();
+      }
+    }
+
+    // Show window size
+    function showSize() {
+      document.getElementById("info").innerHTML = `
+        <b>Inner Width:</b> ${window.innerWidth}<br>
+        <b>Inner Height:</b> ${window.innerHeight}<br>
+        <b>Screen Width:</b> ${window.screen.width}<br>
+        <b>Screen Height:</b> ${window.screen.height}<br>
+      `;
+    }
+
+    // Window alerts
+    function showAlert() {
+      window.alert("This is an alert box!");
+    }
+
+    function showConfirm() {
+      let result = window.confirm("Do you like JavaScript?");
+      document.getElementById("info").innerHTML = "Confirm Result: " + result;
+    }
+
+    function showPrompt() {
+      let name = window.prompt("Enter your name:");
+      document.getElementById("info").innerHTML = "Hello, " + name;
+    }
+
+    // Scroll window
+    function scrollWin() {
+      window.scrollBy(0, 1000); // scroll down by 100px
+    }
+
+    // Timer functions
+    function startTimer() {
+      timer = window.setInterval(() => {
+        document.getElementById("info").innerHTML = "Time: " + new Date().toLocaleTimeString();
+      }, 1000);
+    }
+
+    function stopTimer() {
+      window.clearInterval(timer);
+      document.getElementById("info").innerHTML = "Timer Stopped!";
+    }
+  </script>
+</body>
+</html>

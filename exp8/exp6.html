@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head><title>Denominations</title></head>
+<body>
+<script>
+  var amount = parseInt(prompt("Enter the amount:"));
+  var rem = amount;
+
+  var hundreds = Math.floor(rem / 100);
+  rem = rem % 100;
+
+  var fifties = Math.floor(rem / 50);
+  rem = rem % 50;
+
+  var twenties = Math.floor(rem / 20);
+  rem = rem % 20;
+
+  var tens = Math.floor(rem / 10);
+  rem = rem % 10;
+
+  var fives = Math.floor(rem / 5);
+  rem = rem % 5;
+
+  var twos = Math.floor(rem / 2);
+  rem = rem % 2;
+
+  var ones = rem;
+
+  document.write("<h3>Amount: Rs." + amount + "</h3>");
+  if(hundreds) document.write(hundreds + " x 100<br>");
+  if(fifties) document.write(fifties + " x 50<br>");
+  if(twenties) document.write(twenties + " x 20<br>");
+  if(tens) document.write(tens + " x 10<br>");
+  if(fives) document.write(fives + " x 5<br>");
+  if(twos) document.write(twos + " x 2<br>");
+  if(ones) document.write(ones + " x 1<br>");
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Regex Validation Example</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background: #f4f7fa; margin: 20px; }
+    input { padding: 8px; margin: 10px; border-radius: 5px; border: 1px solid #aaa; width: 250px; }
+    button { padding: 8px 15px; margin: 5px; border: none; border-radius: 6px; cursor: pointer; background: #28a745; color: white; }
+    button:hover { background: #1e7e34; transition: 0.3s; }
+    #output { margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; text-align: left; display: inline-block; }
+    .success { color: green; font-weight: bold; }
+    .error { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Live Regex Validation</h1>
+
+  <input type="text" id="email" placeholder="Enter Gmail" /><br />
+  <input type="text" id="phone" placeholder="Enter Phone Number" /><br />
+  <input type="password" id="password" placeholder="Enter Password" /><br />
+
+  <button onclick="validate()">Validate</button>
+
+  <div id="output"></div>
+
+  <script>
+    function validate() {
+      let email = document.getElementById("email").value;
+      let phone = document.getElementById("phone").value;
+      let password = document.getElementById("password").value;
+
+      // Gmail regex: example@gmail.com
+      let emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+      // Phone regex: 10 digits
+      let phoneRegex = /^[0-9]{10}$/;
+
+      // Strong password: min 8 chars, at least 1 uppercase, 1 lowercase, 1 number
+      let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+      let output = "";
+
+      // Email validation
+      if(emailRegex.test(email)) {
+        output += `<p class="success">Valid Gmail: ${email}</p>`;
+      } else {
+        output += `<p class="error">Invalid Gmail</p>`;
+      }
+
+      // Phone validation
+      if(phoneRegex.test(phone)) {
+        output += `<p class="success">Valid Phone Number: ${phone}</p>`;
+      } else {
+        output += `<p class="error">Invalid Phone Number</p>`;
+      }
+
+      // Password validation
+      if(passwordRegex.test(password)) {
+        output += `<p class="success">Strong Password</p>`;
+      } else {
+        output += `<p class="error">Weak Password (Min 8 chars, 1 uppercase, 1 lowercase, 1 number)</p>`;
+      }
+
+      document.getElementById("output").innerHTML = output;
+    }
+  </script>
+</body>
+</html>

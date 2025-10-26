@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Larger Number</title></head>
+<body>
+<script>
+  var a = Number(prompt("Enter first number:"));
+  var b = Number(prompt("Enter second number:"));
+  var c = Number(prompt("Enter third number:"));
+
+  if(a == b && b == c){
+    document.write("EQUAL NUMBERS");
+  }
+  else{
+    if(a > b && a > c)
+      document.write(a + " LARGER NUMBER");
+    else if(b > a && b > c)
+      document.write(b + " LARGER NUMBER");
+    else
+      document.write(c + " LARGER NUMBER");
+  }
+</script>
+</body>
+</html>

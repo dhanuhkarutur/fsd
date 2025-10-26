@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document Object Example</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 20px; background: #f4f4f4; }
+    button { padding: 10px 20px; margin: 10px; cursor: pointer; border: none; border-radius: 5px; }
+    button:hover { background-color: #0077cc; color: white; transition: 0.3s; }
+    #info { margin-top: 20px; text-align: left; background: #fff; padding: 10px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1 id="heading">Document Object Demo</h1>
+
+  <button onclick="changeTitle()">Change Title</button>
+  <button onclick="changeBg()">Change Background</button>
+  <button onclick="addParagraph()">Add Paragraph</button>
+  <button onclick="showInfo()">Show Document Info</button>
+
+  <div id="output"></div>
+  <div id="info"></div>
+
+  <script>
+    // Method 1: Change the document title
+    function changeTitle() {
+      document.title = "New Dynamic Title!";
+      document.getElementById("heading").innerText = "Title has been updated!";
+    }
+
+    // Method 2: Change background color
+    function changeBg() {
+      document.body.style.background = 
+        document.body.style.background === "lightyellow" ? "#f4f4f4" : "lightyellow";
+    }
+
+    // Method 3: Add a paragraph dynamically
+    function addParagraph() {
+      let p = document.createElement("p");
+      p.innerText = "This is a new paragraph added using document.createElement().";
+      document.getElementById("output").appendChild(p);
+    }
+
+    // Method 4: Show document properties
+    function showInfo() {
+      let info = `
+        <b>Document Title:</b> ${document.title}<br>
+        <b>URL:</b> ${document.URL}<br>
+        <b>Domain:</b> ${document.domain}<br>
+        <b>Last Modified:</b> ${document.lastModified}<br>
+      `;
+      document.getElementById("info").innerHTML = info;
+    }
+  </script>
+</body>
+</html>

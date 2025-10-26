@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Date Object Example</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; margin: 20px; }
+    button { padding: 10px 20px; margin: 8px; border: none; border-radius: 6px; cursor: pointer; background: #ff7f50; color: white; }
+    button:hover { background: #e0663d; transition: 0.3s; }
+    #output { margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; text-align: left; display: inline-block; }
+  </style>
+</head>
+<body>
+  <h1>Date Object Demo</h1>
+
+  <button onclick="showDate()">Show Current Date & Time</button>
+  <button onclick="showComponents()">Show Date Components</button>
+  <button onclick="updateDate()">Update Date</button>
+  <button onclick="calculateDifference()">Calculate Difference</button>
+
+  <div id="output"></div>
+
+  <script>
+    // 1. Show current date and time
+    function showDate() {
+      let now = new Date();
+      document.getElementById("output").innerHTML = "Current Date & Time: " + now;
+    }
+
+    // 2. Show date components
+    function showComponents() {
+      let now = new Date();
+      let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      let result = `
+        Year: ${now.getFullYear()}<br>
+        Month: ${now.getMonth() + 1} (0=Jan)<br>
+        Date: ${now.getDate()}<br>
+        Day: ${days[now.getDay()]}<br>
+        Hours: ${now.getHours()}<br>
+        Minutes: ${now.getMinutes()}<br>
+        Seconds: ${now.getSeconds()}<br>
+        Milliseconds: ${now.getMilliseconds()}
+      `;
+      document.getElementById("output").innerHTML = result;
+    }
+
+    // 3. Update date example
+    function updateDate() {
+      let date = new Date();
+      date.setFullYear(2030);
+      date.setMonth(11); // December
+      date.setDate(25);
+      date.setHours(10);
+      date.setMinutes(30);
+      document.getElementById("output").innerHTML = "Updated Date: " + date;
+    }
+
+    // 4. Calculate difference between two dates
+    function calculateDifference() {
+      let date1 = new Date("2025-12-25");
+      let date2 = new Date();
+      let diff = date1 - date2; // difference in milliseconds
+      let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("output").innerHTML = `Days until 25 Dec 2025: ${days} days`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User-Defined Object Example</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background: #f4f7fa; margin: 20px; }
+    button { padding: 10px 20px; margin: 8px; border: none; border-radius: 6px; cursor: pointer; background: #6a5acd; color: white; }
+    button:hover { background: #4b3fbf; transition: 0.3s; }
+    #output { margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; text-align: left; display: inline-block; }
+    input { padding: 5px; margin: 5px; border-radius: 5px; border: 1px solid #aaa; }
+  </style>
+</head>
+<body>
+  <h1>User-Defined Object Demo</h1>
+
+  <input type="text" id="name" placeholder="Enter Name" />
+  <input type="number" id="age" placeholder="Enter Age" />
+  <button onclick="createStudent()">Create Student</button>
+
+  <div id="output"></div>
+
+  <script>
+    // 1. Constructor Function
+    function Student(name, age) {
+      // Properties
+      this.name = name;
+      this.age = age;
+
+      // Method
+      this.greet = function() {
+        return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+      };
+
+      // Accessor (getter & setter)
+      Object.defineProperty(this, "info", {
+        get: function() {
+          return `Student Name: ${this.name}, Age: ${this.age}`;
+        },
+        set: function(obj) {
+          if(obj.name) this.name = obj.name;
+          if(obj.age) this.age = obj.age;
+        }
+      });
+
+      // Display Method
+      this.display = function() {
+        let out = `
+          <b>Properties:</b> Name = ${this.name}, Age = ${this.age}<br>
+          <b>Method (greet):</b> ${this.greet()}<br>
+          <b>Accessor (info):</b> ${this.info}
+        `;
+        return out;
+      }
+    }
+
+    // Create student object
+    let student;
+
+    function createStudent() {
+      let name = document.getElementById("name").value;
+      let age = parseInt(document.getElementById("age").value);
+
+      student = new Student(name, age);
+
+      // Display object details
+      document.getElementById("output").innerHTML = student.display();
+
+      // Update using accessor
+      student.info = {name: name + " Updated", age: age + 1};
+      document.getElementById("output").innerHTML += `<br><b>After Accessor Update:</b> ${student.info}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form Validation</title>
+  <script>
+    function validateRegistration() {
+      let uname = document.getElementById("uname").value.trim();
+      let phone = document.getElementById("phone").value.trim();
+      let mail = document.getElementById("mail").value.trim();
+
+      // Regex patterns
+      let nameRegex = /^[A-Za-z][A-Za-z0-9]{5,}$/;
+      let phoneRegex = /^\d{10}$/;
+      let emailRegex = /^[\w.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+      // Name validation
+      if (!nameRegex.test(uname)) {
+        alert("Invalid Name! Must start with a letter and be at least 6 characters.");
+        return false;
+      }
+
+      // Phone validation
+      if (!phoneRegex.test(phone)) {
+        alert("Mobile must contain exactly 10 digits.");
+        return false;
+      }
+
+      // Email validation
+      if (!emailRegex.test(mail)) {
+        alert("Enter a valid email address (like example@mail.com).");
+        return false;
+      }
+
+      alert("Registration successful!");
+      return true;
+    }
+  </script>
+</head>
+<body style="font-family:Arial; text-align:center; margin-top:50px;">
+  <h2>Registration Page</h2>
+  <form onsubmit="return validateRegistration()">
+    <label>Full Name:</label><br>
+    <input type="text" id="uname" placeholder="Enter name"><br><br>
+
+    <label>Mobile No:</label><br>
+    <input type="text" id="phone" placeholder="10 digit number"><br><br>
+
+    <label>Email ID:</label><br>
+    <input type="text" id="mail" placeholder="example@mail.com"><br><br>
+
+    <input type="submit" value="Register">
+  </form>
+</body>
+</html>

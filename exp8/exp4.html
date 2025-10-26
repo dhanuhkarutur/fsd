@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><title>Object Loops</title></head>
+<body>
+<script>
+  var car = {
+    brand: "Toyota",
+    model: "Camry",
+    year: 2021
+  };
+
+  document.write("<b>for-in loop:</b><br>");
+  for(var key in car){
+    document.write(key + ": " + car[key] + "<br>");
+  }
+
+  var arr = Object.entries(car);
+  
+  document.write("<br><b>forEach loop:</b><br>");
+  arr.forEach(function(item){
+    document.write(item[0] + ": " + item[1] + "<br>");
+  });
+
+  document.write("<br><b>for-of loop:</b><br>");
+  for(var item of arr){
+    document.write(item[0] + ": " + item[1] + "<br>");
+  }
+</script>
+</body>
+</html>
